@@ -5,12 +5,15 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { BrowserRouter as Router } from "react-router-dom";
+import { AppContextProvider } from "./services/appContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <AppContextProvider>
+      <Router>
+        <App />
+      </Router>
+    </AppContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

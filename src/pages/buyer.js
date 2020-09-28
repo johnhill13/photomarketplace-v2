@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class buyer extends Component {
-    render() {
-        return (
-            <div>
-                buyer page
-            </div>
-        )
-    }
+  render() {
+    return <div>buyer page</div>;
+  }
 }

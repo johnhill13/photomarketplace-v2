@@ -1,5 +1,10 @@
 import React from "react";
+import { AppContextConsumer } from "../services/appContext";
 
 export default function home() {
-  return <div>this is the home page</div>;
+  return (
+    <AppContextConsumer>
+      {(context) => <div>{context.allPosts}</div>}
+    </AppContextConsumer>
+  );
 }

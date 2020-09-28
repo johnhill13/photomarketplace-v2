@@ -6,7 +6,6 @@ import Seller from "./pages/seller";
 import Buyer from "./pages/buyer";
 import NavBar from "./components/navBar";
 
-
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/sellers" component={Seller} />
         <Route path="/buyers" component={Buyer} />
-
       </Switch>
     </main>
   );
