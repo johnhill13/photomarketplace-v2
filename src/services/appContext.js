@@ -9,7 +9,7 @@ class AppContextProvider extends Component {
     buyers: [],
     sellers: [],
     traders: [],
-    isLoading: false
+    isLoading: false,
   };
 
   componentDidMount() {
@@ -19,11 +19,10 @@ class AppContextProvider extends Component {
   getData = async () => {
     axios.get(`https://www.reddit.com/r/photomarket/new.json`).then((res) => {
       const allPosts = res.data.data.children;
-      this.setState({allPosts: allPosts});
+      this.setState({ allPosts: allPosts });
       this.buyerOrSeller();
-    })
+    });
   };
-  
 
   buyerOrSeller = () => {
     console.log("buyerorseller", this.state.allPosts);
@@ -43,10 +42,8 @@ class AppContextProvider extends Component {
     }
   };
 
-  
-
   render() {
-    return (<Provider value={this.state}>{this.props.children}</Provider>);
+    return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }
 

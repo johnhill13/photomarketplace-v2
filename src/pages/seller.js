@@ -5,32 +5,32 @@ import { AppContextConsumer } from "../services/appContext";
 import "antd/dist/antd.css";
 import { Row, Card } from "antd";
 
-
 export default class Seller extends Component {
   render() {
     return (
       <AppContextConsumer>
-          {(data) => 
-        <div>
-          <Row>
-            <div>
-              {data.sellers.map((buyer) => (
-                <Card
-                  hoverable
-                  title={buyer.data.title}
-                  extra={<a href={buyer.data.url}>Original Post</a>}
-                >
-                  <div key={buyer.data.id}>
-                    <div>{buyer.data.selftext}</div>
-                    <div>{buyer.data.link_flair_text}</div>
-                    <div>{buyer.data.author}</div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </Row>
-        </div>
-  }
+        {(data) => (
+          <div>
+            <Row>
+              <div>
+                {data.sellers.map((seller) => (
+                  <Card
+                    key={seller.data.id}
+                    hoverable
+                    title={seller.data.title}
+                    extra={<a href={seller.data.url}>Original Post</a>}
+                  >
+                    <div key={seller.data.id}>
+                      <div>{seller.data.selftext}</div>
+                      <div>{seller.data.link_flair_text}</div>
+                      <div>{seller.data.author}</div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </Row>
+          </div>
+        )}
       </AppContextConsumer>
     );
   }
