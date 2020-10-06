@@ -1,16 +1,52 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 const { Provider, Consumer } = React.createContext();
 
 class AppContextProvider extends Component {
   state = {
-    allPosts: ["test", "tester"],
-    buyers: ["buyer", "buyers"],
-    sellers: ["seller", 'sellers'],
+    allPosts: [],
+    buyers: [],
+    sellers: [],
     traders: [],
+    isLoading: false
   };
 
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = async () => {
+    axios.get(`https://www.reddit.com/r/photomarket/new.json`).then((res) => {
+      const allPosts = res.data.data.children;
+      this.setState({allPosts: allPosts});
+      this.buyerOrSeller();
+    })
+  };
+  
+
+  buyerOrSeller = () => {
+    console.log("buyerorseller", this.state.allPosts);
+
+    for (let i = 0; i < this.state.allPosts.length; i++) {
+      if (this.state.allPosts[i].data.link_flair_text === "SELLING") {
+        this.setState({
+          sellers: [...this.state.sellers, this.state.allPosts[i]],
+        });
+        // console.log(this.state.sellers);
+      } else if (this.state.allPosts[i].data.link_flair_text === "BUYING") {
+        this.setState({
+          buyers: [...this.state.buyers, this.state.allPosts[i]],
+        });
+        // console.log("buyers", this.state.buyers);
+      }
+    }
+  };
+
+  
+
   render() {
-    return <Provider value={this.state}>{this.props.children}</Provider>;
+    return (<Provider value={this.state}>{this.props.children}</Provider>);
   }
 }
 
