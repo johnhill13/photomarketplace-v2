@@ -4,7 +4,7 @@ import { AppContextConsumer } from "../services/appContext";
 export default function home() {
   return (
     <AppContextConsumer>
-      {(context) => <div>{context.allPosts}</div>}
+      {(data) => <div>{data.allPosts}</div>}
     </AppContextConsumer>
   );
 }

@@ -4,8 +4,8 @@ const { Provider, Consumer } = React.createContext();
 class AppContextProvider extends Component {
   state = {
     allPosts: ["test", "tester"],
-    buyers: [],
-    sellers: [],
+    buyers: ["buyer", "buyers"],
+    sellers: ["seller", 'sellers'],
     traders: [],
   };
 

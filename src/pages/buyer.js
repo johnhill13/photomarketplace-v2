@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
-export default class buyer extends Component {
+import { AppContextConsumer} from "../services/appContext";
+
+export default class Buyer extends Component {
   render() {
-    return <div>buyer page</div>;
+    return (
+      <AppContextConsumer>
+        {(data) => <div>{data.buyers}</div>}
+      </AppContextConsumer>
+    );
   }
 }
