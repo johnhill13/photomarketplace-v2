@@ -17,7 +17,7 @@ class AppContextProvider extends Component {
   }
 
   getData = async () => {
-    axios.get(`https://www.reddit.com/r/photomarket/new.json`).then((res) => {
+    axios.get(`https://www.reddit.com/r/photomarket.json?limit=100`).then((res) => {
       const allPosts = res.data.data.children;
       this.setState({ allPosts: allPosts });
       this.buyerOrSeller();

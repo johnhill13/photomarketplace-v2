@@ -1,0 +1,19 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+}
+
+.card {
+    margin: 2em;
+    overflow-wrap: break-word;
+
+}
+
+.ant-card-head-title {
+    white-space: pre-wrap;
+}
+
+.ant-card-body {
+    /* overflow-wrap: anywhere; */
+}
