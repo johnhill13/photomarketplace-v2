@@ -12,7 +12,7 @@ function date(props) {
 
   return (
     <div className="posted">
-      <div>Posted: </div>
+      <div className='posted-title'>Posted: </div>
       {mutateDate(date)}
     </div>
   );

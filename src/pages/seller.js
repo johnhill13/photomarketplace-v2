@@ -24,22 +24,22 @@ export default class Seller extends Component {
                   hoverable
                   title={seller.data.title}
                 >
-                  <a href={seller.data.url}>Go to Reddit.</a>
+                  <a href={seller.data.url} target="_blank" rel="noopener noreferrer">Go to Reddit.</a>
                   <div key={seller.data.id}>
                     <br />
                     <div>{seller.data.selftext}</div>
                     <br />
                     <div className='type'>
-                      <div>Type:</div>
+                      <div className='type-title'>Type:</div>
                       <div>{seller.data.link_flair_text}</div>
                     </div>
                     <div className='author'>
-                      <div>Author:</div>
+                      <div className='author-title'>Author:</div>
                       <div>{seller.data.author}</div>
                     </div>
                     <Date created={seller.data.created} />
                     <div className='num-comments'>
-                      <div>Num Comments:</div>
+                      <div className='num-comments-title'>Num Comments:</div>
                       <div>{seller.data.num_comments}</div>
                     </div>
                   </div>

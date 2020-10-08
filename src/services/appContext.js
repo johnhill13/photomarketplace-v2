@@ -25,19 +25,19 @@ class AppContextProvider extends Component {
   };
 
   buyerOrSeller = () => {
-    console.log("buyerorseller", this.state.allPosts);
+
 
     for (let i = 0; i < this.state.allPosts.length; i++) {
       if (this.state.allPosts[i].data.link_flair_text === "SELLING") {
         this.setState({
           sellers: [...this.state.sellers, this.state.allPosts[i]],
         });
-        // console.log(this.state.sellers);
+
       } else if (this.state.allPosts[i].data.link_flair_text === "BUYING") {
         this.setState({
           buyers: [...this.state.buyers, this.state.allPosts[i]],
         });
-        // console.log("buyers", this.state.buyers);
+
       }
     }
   };

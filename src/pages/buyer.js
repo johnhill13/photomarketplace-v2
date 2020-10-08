@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { AppContextConsumer } from "../services/appContext";
 import { Card, BackTop } from "antd";
 
+import Date from "../components/date";
+
 import "antd/dist/antd.css";
 import "../pages/seller.css";
 
@@ -22,12 +24,24 @@ export default class Buyer extends Component {
                   hoverable
                   title={buyer.data.title}
                 >
-                  <a href={buyer.data.url}>Original Post</a>
+                  <a href={buyer.data.url} target="_blank" rel="noopener noreferrer">Go to Reddit.</a>
                   <div key={buyer.data.id}>
-                    <div> Description: {buyer.data.selftext}</div>
-                    <div> Type: {buyer.data.link_flair_text}</div>
-                    <div> Author: {buyer.data.author}</div>
-                    <div>Date Created: {() => {}}</div>
+                    <br />
+                    <div>{buyer.data.selftext}</div>
+                    <br />
+                    <div className='type'>
+                      <div className='type-title'>Type:</div>
+                      <div>{buyer.data.link_flair_text}</div>
+                    </div>
+                    <div className='author'>
+                      <div className='author-title'>Author:</div>
+                      <div>{buyer.data.author}</div>
+                    </div>
+                    <Date created={buyer.data.created} />
+                    <div className='num-comments'>
+                      <div className='num-comments-title'>Num Comments:</div>
+                      <div>{buyer.data.num_comments}</div>
+                    </div>
                   </div>
                 </Card>
               ))}
