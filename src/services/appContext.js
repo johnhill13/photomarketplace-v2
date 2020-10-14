@@ -17,27 +17,25 @@ class AppContextProvider extends Component {
   }
 
   getData = async () => {
-    axios.get(`https://www.reddit.com/r/photomarket.json?limit=100`).then((res) => {
-      const allPosts = res.data.data.children;
-      this.setState({ allPosts: allPosts });
-      this.buyerOrSeller();
-    });
+    axios
+      .get(`https://www.reddit.com/r/photomarket.json?limit=100`)
+      .then((res) => {
+        const allPosts = res.data.data.children;
+        this.setState({ allPosts: allPosts });
+        this.buyerOrSeller();
+      });
   };
 
   buyerOrSeller = () => {
-
-
     for (let i = 0; i < this.state.allPosts.length; i++) {
       if (this.state.allPosts[i].data.link_flair_text === "SELLING") {
         this.setState({
           sellers: [...this.state.sellers, this.state.allPosts[i]],
         });
-
       } else if (this.state.allPosts[i].data.link_flair_text === "BUYING") {
         this.setState({
           buyers: [...this.state.buyers, this.state.allPosts[i]],
         });
-
       }
     }
   };
